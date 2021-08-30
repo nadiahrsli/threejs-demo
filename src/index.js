@@ -8,9 +8,12 @@
 const THREE = require("three");
 
 function createRenderer() {
-  let renderer = new THREE.WebGLRenderer();
+  let renderer = new THREE.WebGLRenderer({
+    antialias: true, //get clear image
+  });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setClearColor("#16161d"); // set the background canvas color to some color
+  renderer.setPixelRatio(window.devicePixelRatio);
   let output = document.querySelector("#output");
   output.appendChild(renderer.domElement);
   return renderer;
@@ -63,7 +66,7 @@ function createSphere() {
   });
   // Mesh
   let mesh = new THREE.Mesh(geo, mat);
-  // Return the messh
+  // Return the mesh
   return mesh;
 }
 
