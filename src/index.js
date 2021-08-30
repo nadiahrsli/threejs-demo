@@ -11,6 +11,7 @@ function createRenderer() {
   let renderer = new THREE.WebGLRenderer({
     antialias: true, //get clear image
   });
+
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setClearColor("#16161d"); // set the background canvas color to some color
   renderer.setPixelRatio(window.devicePixelRatio);
@@ -90,7 +91,7 @@ function createLight() {
   return light;
 }
 
-function createLighthelper(light) {
+function createLightHelper(light) {
   let helper = new THREE.PointLightHelper(light);
   return helper;
 }
@@ -103,13 +104,13 @@ let axesHelper = createAxesHelper();
 let cube = createCube();
 let sphere = createSphere();
 let light = createLight();
-let lightHelper = createLighthelper();
+let lightHelper = createLightHelper(light);
 
 light.position.x = 10;
 light.position.y = 10;
 light.position.z = 10;
 
-sphere.position.z = 20;
+sphere.position.x = 20;
 
 scene.add(axesHelper);
 scene.add(cube, sphere, light, lightHelper);
